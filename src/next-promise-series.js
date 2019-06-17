@@ -4,7 +4,7 @@
   var MSG_ERR = 'promise.series only accepts an array of functions';
 
   nx.promiseSeries = function(inTasks, inInitial) {
-    if (!Array.isArray(inTasks)) {
+    if (!typeof inTasks.length === 'number') {
       return Promise.reject(new TypeError(MSG_ERR));
     }
     return inTasks.reduce(function(current, next) {
