@@ -8,5 +8,15 @@ npm install -S afeiship/next-promise-series --registry=https://registry.npm.taob
 
 ## usage
 ```js
-//DOCS here!
+import nxPromiseSeries from 'next-promise-series';
+nxPromiseSeries([
+  promise1,
+  promise2,
+  promise3
+]).then(response=>{
+
+});
+
+// Or you can polyfill mode:
+Promise.series = nxPromiseSeries;
 ```
