@@ -1,15 +1,38 @@
 var nx = require('next-js-core2');
 require('../src/next-promise-series');
 
+test('nx.promiseSeries should return right value', function(done) {
+  const sleep = (inCallback, inTimeout) => {
+    var callback = inCallback || nx.noop;
+    var timeout = inTimeout || 1000;
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log('execute!');
+        resolve(callback());
+      }, timeout);
+    });
+  };
 
-test('nx.promiseSeries', function () {
-  var obj1 = {name: 'fei'};
-  var obj2 = {email: '1290657123@qq.com'};
+  var p1 = function(value) {
+    return sleep(() => {
+      return value + 111;
+    });
+  };
 
-  var result = {};
+  var p2 = function(value) {
+    return sleep(() => {
+      return value + 222;
+    });
+  };
 
-  nx.promiseSeries(result, obj1, obj2);
+  var p3 = function(value) {
+    return sleep(() => {
+      return value + 333;
+    });
+  };
 
-  expect(result.name, obj1.name).toBe(null);
+  nx.promiseSeries([p1, p2, p3], 0).then((res) => {
+    expect(res).toBe(666);
+    done();
+  });
 });
-

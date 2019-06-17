@@ -21,5 +21,8 @@ nxPromiseSeries([
 Promise.series = nxPromiseSeries;
 ```
 
+## todo
+- [ ] when reject?
+
 ## resources
 - https://github.com/egoist/promise.series
