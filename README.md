@@ -20,3 +20,6 @@ nxPromiseSeries([
 // Or you can polyfill mode:
 Promise.series = nxPromiseSeries;
 ```
+
+## resources
+- https://github.com/egoist/promise.series
