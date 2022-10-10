@@ -1,6 +1,6 @@
 {
   "name": "@jswork/next-promise-series",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run Promise in series.",
   "homepage": "https://github.com/afeiship/next-promise-series",
   "author": {
